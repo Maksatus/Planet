@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Space(15)] 
     [SerializeField] private CharacterSelection player;
     
+    private SondControl _songEffect;
     private AnimalsMove _playerStatus;
 
     public void StartGame(string currentAnimals)
@@ -64,11 +65,13 @@ public class GameManager : MonoBehaviour
     {
         mainCamera.enabled = status;
         _playerStatus.isMove = status;
+        _songEffect.TurnSong(status);
     }
     private void InitializationCharacter()
     {
         int index = player.selectedCharacter;
         mainCamera.target = player.characters[index].transform;
         _playerStatus = player.characters[index].GetComponent<AnimalsMove>();
+        _songEffect = player.characters[index].GetComponent<SondControl>();
     }
 }

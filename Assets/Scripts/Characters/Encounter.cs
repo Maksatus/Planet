@@ -7,6 +7,8 @@ public class Encounter : MonoBehaviour
     [Space(15)]
     [SerializeField] private Coin effectCoin;
     [SerializeField] private ParticleSystem effectUp;
+    [SerializeField] private SondControl songEffect;
+    
     private bool _isDeath = true;
     private void OnCollisionEnter(Collision other)
     {
@@ -14,6 +16,7 @@ public class Encounter : MonoBehaviour
         if (isCoin!=null)
         {
             score.WriteCoin();
+            songEffect.PlaySongBonus();
             effectCoin.PlayAnimEffectUp(effectUp);
         }
         else if (other.collider.CompareTag("Death") && _isDeath)
