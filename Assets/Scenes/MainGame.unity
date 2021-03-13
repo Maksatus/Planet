@@ -3691,12 +3691,12 @@ MonoBehaviour:
   CoinIndex: 0
   differentIndex: 0
   prefabCoins: {fileID: 3049428253405200621, guid: e62e775cb5c996a4c944ff20f3cec481, type: 3}
-  countCoins: 15
+  countCoins: 20
   spawnPoint: {fileID: 7522653460839639453}
   distanceSpawnMeteor: 40
   timeSpawnMeteor: 1
   distanceSpawnCoins: 26
-  timeSpawnCoins: 4
+  timeSpawnCoins: 3
 --- !u!4 &7522653460839639453
 Transform:
   m_ObjectHideFlags: 0
