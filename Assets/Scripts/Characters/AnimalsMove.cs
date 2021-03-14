@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AnimalsMove : MonoBehaviour
@@ -9,9 +10,23 @@ public class AnimalsMove : MonoBehaviour
     [SerializeField] private  Rigidbody rb;
     
     private float _rotation;
+    private bool _platfrom = true; //true - android
+
+    private void Awake()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+       _platfrom = true;
+#else
+        _platfrom = false;
+#endif
+        Debug.Log(_platfrom);
+    }
+    
+
     void Update ()
     {
         _rotation = Input.GetAxis("Horizontal");
+        Debug.Log(_rotation);
     }
 
     void FixedUpdate ()

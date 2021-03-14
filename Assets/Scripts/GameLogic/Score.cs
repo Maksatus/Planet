@@ -1,3 +1,4 @@
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -24,13 +25,13 @@ public class Score : MonoBehaviour
         _bestScore = infoGame.highScore;
         _totalCoins = infoGame.totalCountCoins;
        
-        bestScore.text = $"Best time:{Mathf.Round(_bestScore)} sec.";
+        bestScore.text = Mathf.Round(_bestScore).ToString(CultureInfo.InvariantCulture);
         actualMoney.text = _totalCoins.ToString();
     }
 
     public void CountingTheRecord()
     {
-        survivalTime.text = $"Survival time:{Mathf.Round(_second)} sec. \nAmount of money collected: {_totalCoins}.";
+        survivalTime.text = Mathf.Round(_second).ToString(CultureInfo.InvariantCulture);
         
         var sec = (_second > _bestScore) ? _second : _bestScore;
         gameSave.SaveToFille(sec,_totalCoins);
